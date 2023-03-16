@@ -24,7 +24,7 @@ public class SupplierController {
     private ISupplierTypeService supplierTypeService;
     @Autowired
     private ISupplierService iSupplierService;
-
+//123sddfadfasdfádfdfadf
     @GetMapping("")
     public ResponseEntity<Page<Supplier>> list(Model model , @PageableDefault(size = 2) Pageable pageable) {
         Page<Supplier> supplierList = iSupplierService.findAll(pageable);
