@@ -21,6 +21,7 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class SupplierController {
 //    ádf
+    //fsadfsfd
         @Autowired
     private ISupplierTypeService supplierTypeService;
     @Autowired
