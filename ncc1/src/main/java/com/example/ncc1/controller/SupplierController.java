@@ -20,6 +20,7 @@ import java.util.Optional;
 @RequestMapping("/supplier")
 @CrossOrigin("*")
 public class SupplierController {
+//    ádf
         @Autowired
     private ISupplierTypeService supplierTypeService;
     @Autowired
