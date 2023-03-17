@@ -8,15 +8,16 @@ import java.util.List;
 
 public interface ICustomerTypeService {
 
-    List<CustomerTypeDTO> getAllCustomerType();
+    List<CustomerTypeDTO> findAll ();
+    CustomerTypeDTO findById (int id);
 
-    CustomerTypeDTO getById(Long id);
-
-    void Update(CustomerTypeDTO customerTypeDTO);
-
-    void delete(Long id);
-
-    CustomerType findCustomerTypeByName(String name);
+//    CustomerTypeDTO getById(Long id);
+//
+//    void Update(CustomerTypeDTO customerTypeDTO);
+//
+//    void delete(Long id);
+//
+//    CustomerType findCustomerTypeByName(String name);
 
 
 }

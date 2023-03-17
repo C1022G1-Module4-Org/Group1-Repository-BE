@@ -21,7 +21,6 @@ public class CustomerService implements ICustomerService{
 
     @Autowired
     ICustomerRepository customerRepository;
-
     @Autowired
     ICustomerTypeRepository customerTypeRepository;
 
