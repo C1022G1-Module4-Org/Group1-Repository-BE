@@ -24,7 +24,7 @@ public class SupplierController {
     private ISupplierTypeService supplierTypeService;
     @Autowired
     private ISupplierService iSupplierService;
-//123sddfadfasdfádfdfadf
+
     @GetMapping("")
     public ResponseEntity<Page<Supplier>> list(Model model , @PageableDefault(size = 2) Pageable pageable) {
         Page<Supplier> supplierList = iSupplierService.findAll(pageable);
@@ -47,7 +47,7 @@ public class SupplierController {
     public String showFormCreate(Model model ){
         List<SupplierType> supplierTypeList = supplierTypeService.findAll();
         model.addAttribute("supplierTypeList",supplierTypeList);
-        model.addAttribute("blog",new Supplier());
+        model.addAttribute("supplier",new Supplier());
         return "views/create";
     }
 
