@@ -4,10 +4,8 @@ package com.example.ncc1.dto.customer;
 import java.util.Set;
 
 public class CustomerTypeDTO {
-
     private Long id;
     private String name;
-
     Set<CustomerDTO> customerDTO;
 
 
