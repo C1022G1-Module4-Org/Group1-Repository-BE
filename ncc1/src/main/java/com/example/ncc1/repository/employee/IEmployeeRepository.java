@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
-    Page<Employee> findEmployeeByNameContaining(String name , Pageable pageable);
+    Page<Employee> findEmployeeByNameContainingAndIsDeleted(Pageable pageable , String name , boolean isDeleted);
 }

@@ -24,6 +24,8 @@ public class Employee {
     @JoinColumn(name = "id_level", nullable = false, referencedColumnName = "id")
     @JsonBackReference
     private LevelEmployee levelEmployee;
+    @Column(name = "is_deleted", nullable = false)
+    private boolean isDeleted = false;
 
     public Employee() {
     }
@@ -92,5 +94,13 @@ public class Employee {
 
     public void setLevelEmployee(LevelEmployee levelEmployee) {
         this.levelEmployee = levelEmployee;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 }
