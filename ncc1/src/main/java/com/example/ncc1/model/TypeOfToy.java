@@ -1,4 +1,4 @@
-package com.example.ncc1.model.product;
+package com.example.ncc1.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -16,7 +16,11 @@ public class TypeOfToy {
     @OneToMany(mappedBy = "typeOfToy")
     private Set<Toy> toySet;
 
+    public TypeOfToy(Integer id) {
+    }
+
     public TypeOfToy() {
+
     }
 
     public Integer getId() {
