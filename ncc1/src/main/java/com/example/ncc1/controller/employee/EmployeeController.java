@@ -1,48 +1,59 @@
 package com.example.ncc1.controller.employee;
 
 import com.example.ncc1.dto.EmployeeDTO;
+import com.example.ncc1.dto.LevelEmployeeDTO;
+import com.example.ncc1.model.employee.Employee;
 import com.example.ncc1.service.employee.IEmployeeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin
+@CrossOrigin("*")
 public class EmployeeController {
 @Autowired
     private IEmployeeService employeeService;
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
-    public Page<EmployeeDTO> getAll(
-            @RequestParam(name = "name", required = false, defaultValue = "") String name,
+    public Page<EmployeeDTO> getEmployeeList(@RequestParam(required = false, defaultValue = "") String name,
             @PageableDefault(size = 3) Pageable pageable) {
-        return employeeService.findAll(name, pageable);
-    }
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{id}")
-    public EmployeeDTO findById(@PathVariable Integer id) {
-        return employeeService.findById(id);
+        Sort sort = Sort.by("id").descending();
+        Pageable sortedPageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
+        return employeeService.findAllEmployee(sortedPageable, name);
     }
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        this.employeeService.delete(id);
+    public void deleteEmployee (@PathVariable int id) {
+        employeeService.delete(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "" ,consumes = "application/json")
-    public void createCustomer(@RequestBody EmployeeDTO customerDTO) {
-        employeeService.create(customerDTO);
-    }
-    @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody EmployeeDTO employeeDTO) {
-        EmployeeDTO employeeDTO1 = employeeService.findById(id);
-        employeeDTO.setId(id);
+    @PostMapping("")
+    public void create (@RequestBody EmployeeDTO employeeDTO) {
         employeeService.create(employeeDTO);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/detail/{id}")
+    public EmployeeDTO showEmployeeDetail (@PathVariable int id) {
+        Employee employee = employeeService.findById(id);
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setLevelEmployeeDTO(new LevelEmployeeDTO());
+        BeanUtils.copyProperties(employee.getLevelEmployee(), employeeDTO.getLevelEmployeeDTO());
+        BeanUtils.copyProperties(employee, employeeDTO);
+        return employeeDTO;
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/edit/{id}")
+    public void editProduct(@RequestBody EmployeeDTO employeeDTO, @PathVariable int id) {
+        employeeService.update(employeeDTO, id);
     }
 }

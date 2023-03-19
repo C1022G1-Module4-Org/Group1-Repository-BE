@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ILevelEmployeeRepository extends JpaRepository<LevelEmployee,Integer> {
-LevelEmployee findLevelEmployeeByName(String name);
+LevelEmployee findById(int id);
 }
