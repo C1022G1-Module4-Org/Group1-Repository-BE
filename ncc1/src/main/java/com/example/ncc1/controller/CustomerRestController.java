@@ -36,7 +36,7 @@ public class CustomerRestController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "" ,consumes = "application/json")
+    @PostMapping("")
     public void createCustomer(@RequestBody CustomerDTO customerDTO) {
         iCustomerService.create(customerDTO);
     }

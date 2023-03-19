@@ -8,9 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CustomerTypeService implements ICustomerTypeService {
@@ -32,32 +30,20 @@ public class CustomerTypeService implements ICustomerTypeService {
     }
     @Override
     public List<CustomerTypeDTO> findAll() {
-        return null;
+        List<CustomerType> customerTypeList = customerTypeRepository.findAll();
+        List<CustomerTypeDTO> customerTypeDTOList = new ArrayList<>();
+        CustomerTypeDTO customerTypeDTO;
+        for (CustomerType customerType : customerTypeList) {
+            customerTypeDTO = new CustomerTypeDTO();
+            setValueOfCustomerDTOSet(customerType, customerTypeDTO);
+            BeanUtils.copyProperties(customerType, customerTypeDTO);
+            customerTypeDTOList.add(customerTypeDTO);
+        }
+        return customerTypeDTOList;
     }
 
     @Override
-    public CustomerTypeDTO findById(int id) {
-        return null;
+    public Optional<CustomerType> findById(Long id) {
+        return customerTypeRepository.findById(id);
     }
-
-
-//    @Override
-//    public CustomerTypeDTO getById(Long id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void Update(CustomerTypeDTO customerTypeDTO) {
-//
-//    }
-//
-//    @Override
-//    public void delete(Long id) {
-//        customerTypeRepository.deleteById(id);
-//    }
-//
-//    @Override
-//    public CustomerType findCustomerTypeByName(String name) {
-//        return customerTypeRepository.findCustomerTypeByName(name);
-//    }
 }

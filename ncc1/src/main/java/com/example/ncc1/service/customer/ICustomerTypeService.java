@@ -5,11 +5,12 @@ import com.example.ncc1.dto.customer.CustomerTypeDTO;
 import com.example.ncc1.model.customer.CustomerType;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ICustomerTypeService {
 
     List<CustomerTypeDTO> findAll ();
-    CustomerTypeDTO findById (int id);
+    Optional<CustomerType> findById (Long id);
 
 //    CustomerTypeDTO getById(Long id);
 //

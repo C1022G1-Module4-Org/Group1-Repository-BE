@@ -1,5 +1,6 @@
 package com.example.ncc1.controller;
 
+import com.example.ncc1.dto.customer.CustomerTypeDTO;
 import com.example.ncc1.model.customer.CustomerType;
 import com.example.ncc1.service.customer.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +13,15 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/type")
+@RequestMapping("/customer-type")
 public class CustomerTypeController {
     @Autowired
     private ICustomerTypeService iCustomerTypeService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
-    public List<CustomerType> getAll() {
-        return iCustomerTypeService.getAllCustomerType();
+    public List<CustomerTypeDTO> getAll() {
+        return iCustomerTypeService.findAll();
     }
 
 }
