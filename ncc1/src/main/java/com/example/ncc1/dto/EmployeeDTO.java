@@ -1,7 +1,13 @@
 package com.example.ncc1.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class EmployeeDTO {
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String dateOfBirth;
     private String gender;
@@ -11,7 +17,8 @@ public class EmployeeDTO {
 
     public EmployeeDTO() {
     }
-
+    public EmployeeDTO(Integer id) {
+    }
     public String getName() {
         return name;
     }
@@ -28,11 +35,11 @@ public class EmployeeDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -67,4 +74,5 @@ public class EmployeeDTO {
     public void setLevelEmployeeDTO(LevelEmployeeDTO levelEmployeeDTO) {
         this.levelEmployeeDTO = levelEmployeeDTO;
     }
+
 }

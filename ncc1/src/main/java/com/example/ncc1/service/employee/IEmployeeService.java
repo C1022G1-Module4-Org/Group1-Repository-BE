@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface IEmployeeService{
     Page<EmployeeDTO> findAllEmployee(Pageable pageable, String name);
-    void create (EmployeeDTO employeeDTO);
+    void create (Employee employee);
     void delete (int id);
     Employee findById(int id);
     void update (EmployeeDTO employeeDTO, int id);
