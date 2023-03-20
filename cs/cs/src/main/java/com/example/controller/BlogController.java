@@ -5,9 +5,11 @@ import com.example.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -29,5 +31,17 @@ public class BlogController {
     public ResponseEntity<List<Blog>> add(@RequestBody Blog blog){
         blogService.saveBlog(blog);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("/detail")
+    @ResponseStatus(HttpStatus.OK)
+    public Blog showList(@RequestParam(required = false)Integer id){
+        return blogService.findById(id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/{id}")
+    public void  deleteTBlog(@RequestParam(required = false) Integer id) {
+        blogService.deleteBlog(id);
     }
 }
