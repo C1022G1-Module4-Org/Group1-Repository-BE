@@ -1,12 +1,14 @@
 package com.example.ncc1.dto;
 
 
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 public class LevelEmployeeDTO {
     private int id;
+    @NotBlank
     private String name;
-    private Set<EmployeeDTO> employeeDTOSet;
+//    private Set<EmployeeDTO> employeeDTOSet;
 
     public LevelEmployeeDTO() {
     }
@@ -27,11 +29,11 @@ public class LevelEmployeeDTO {
         this.name = name;
     }
 
-    public Set<EmployeeDTO> getEmployeeDTOSet() {
-        return employeeDTOSet;
-    }
-
-    public void setEmployeeDTOSet(Set<EmployeeDTO> employeeDTOSet) {
-        this.employeeDTOSet = employeeDTOSet;
-    }
+//    public Set<EmployeeDTO> getEmployeeDTOSet() {
+//        return employeeDTOSet;
+//    }
+//
+//    public void setEmployeeDTOSet(Set<EmployeeDTO> employeeDTOSet) {
+//        this.employeeDTOSet = employeeDTOSet;
+//    }
 }

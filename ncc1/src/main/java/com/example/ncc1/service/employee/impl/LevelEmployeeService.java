@@ -19,35 +19,32 @@ import java.util.Set;
 public class LevelEmployeeService implements ILevelEmployeeService{
         @Autowired
     private ILevelEmployeeRepository levelEmployeeRepository;
-    public void setValueOfEmployeeDTOSet (LevelEmployee levelEmployee, LevelEmployeeDTO levelEmployeeDTO) {
-        Set<Employee> employeeSet = levelEmployee.getEmployeeSet();
-        Set<EmployeeDTO> employeeDTOSet = new LinkedHashSet<>();
-        EmployeeDTO employeeDTO;
-        for (Employee employee : employeeSet) {
-            employeeDTO = new EmployeeDTO();
-            BeanUtils.copyProperties(employee, employeeDTO);
-            employeeDTOSet.add(employeeDTO);
-        }
-        BeanUtils.copyProperties(levelEmployee, levelEmployeeDTO);
-        levelEmployeeDTO.setEmployeeDTOSet(employeeDTOSet);
-    }
+//    public void setValueOfEmployeeDTOSet (LevelEmployee levelEmployee, LevelEmployeeDTO levelEmployeeDTO) {
+//        Set<Employee> employeeSet = levelEmployee.getEmployeeSet();
+//        Set<EmployeeDTO> employeeDTOSet = new LinkedHashSet<>();
+//        EmployeeDTO employeeDTO;
+//        for (Employee employee : employeeSet) {
+//            employeeDTO = new EmployeeDTO();
+//            BeanUtils.copyProperties(employee, employeeDTO);
+//            employeeDTOSet.add(employeeDTO);
+//        }
+//        BeanUtils.copyProperties(levelEmployee, levelEmployeeDTO);
+//        levelEmployeeDTO.setEmployeeDTOSet(employeeDTOSet);
+//    }
 
     @Override
-    public List<LevelEmployeeDTO> findAll() {
+    public List<LevelEmployee> findAll() {
         List<LevelEmployee> levelEmployeeList = levelEmployeeRepository.findAll();
-        List<LevelEmployeeDTO> levelEmployeeDTOList = new ArrayList<>();
-        LevelEmployeeDTO levelEmployeeDTO;
-        for (LevelEmployee levelEmployee : levelEmployeeList) {
-            levelEmployeeDTO = new LevelEmployeeDTO();
-            setValueOfEmployeeDTOSet(levelEmployee, levelEmployeeDTO);
-            BeanUtils.copyProperties(levelEmployee, levelEmployeeDTO);
-            levelEmployeeDTOList.add(levelEmployeeDTO);
-        }
-        return levelEmployeeDTOList;
+        return levelEmployeeList;
     }
 
     @Override
     public LevelEmployee findById(int id) {
         return levelEmployeeRepository.findById(id);
+    }
+
+    @Override
+    public void create(LevelEmployee levelEmployee) {
+        levelEmployeeRepository.save(levelEmployee);
     }
 }

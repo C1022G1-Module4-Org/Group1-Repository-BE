@@ -3,6 +3,7 @@ package com.example.ncc1.model.employee;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 @Entity
@@ -11,6 +12,7 @@ public class LevelEmployee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "levelEmployee" , cascade = CascadeType.ALL)
