@@ -26,11 +26,10 @@ public class BlogController {
         }
         return new ResponseEntity<>(blogList, HttpStatus.OK);
     }
-    
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public ResponseEntity<List<Blog>> add(@RequestBody Blog blog){
+    public void add(@RequestBody Blog blog){
         blogService.saveBlog(blog);
-        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/detail")
@@ -41,7 +40,7 @@ public class BlogController {
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{id}")
-    public void  deleteTBlog(@RequestParam(required = false) Integer id) {
+    public void  deleteTBlog(@PathVariable  int id) {
         blogService.deleteBlog(id);
     }
 }
