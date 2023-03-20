@@ -19,6 +19,9 @@ public class LevelEmployee {
     public LevelEmployee() {
     }
 
+    public LevelEmployee(Integer id) {
+    }
+
     public int getId() {
         return id;
     }

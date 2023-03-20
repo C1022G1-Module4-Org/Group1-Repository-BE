@@ -3,6 +3,7 @@ package com.example.ncc1.controller.employee;
 import com.example.ncc1.dto.EmployeeDTO;
 import com.example.ncc1.dto.LevelEmployeeDTO;
 import com.example.ncc1.model.employee.Employee;
+import com.example.ncc1.model.employee.LevelEmployee;
 import com.example.ncc1.service.employee.IEmployeeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,14 @@ public class EmployeeController {
     public void deleteEmployee (@PathVariable int id) {
         employeeService.delete(id);
     }
-
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
+    @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody EmployeeDTO employeeDTO) {
-        employeeService.create(employeeDTO);
+        Employee employee = new Employee();
+        employee.setLevelEmployee(new LevelEmployee(employeeDTO.getLevelEmployeeDTO().getId()));
+        BeanUtils.copyProperties(employeeDTO.getLevelEmployeeDTO(),employee.getLevelEmployee());
+        BeanUtils.copyProperties(employeeDTO,employee);
+        employeeService.create(employee);
     }
 
     @ResponseStatus(HttpStatus.OK)

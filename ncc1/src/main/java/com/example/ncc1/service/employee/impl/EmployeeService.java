@@ -41,11 +41,8 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public void create(EmployeeDTO employeeDTO) {
-        Employee employee = new Employee();
-        employee.setLevelEmployee(levelEmployeeRepository.findById(employeeDTO.getLevelEmployeeDTO().getId()).get());
-        BeanUtils.copyProperties(employeeDTO, employee);
-        employeeRepository.save(employee);
+    public void create(Employee employee) {
+         employeeRepository.save(employee);
     }
 
     @Override
