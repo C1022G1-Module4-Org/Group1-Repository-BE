@@ -14,7 +14,7 @@ public class TypeOfToy {
 
     @JsonBackReference
     @OneToMany(mappedBy = "typeOfToy")
-    private Set<Toy> toySet;
+     Set<Toy> toySet;
 
     public TypeOfToy(Integer id) {
     }
