@@ -45,7 +45,7 @@ public class ToyRestfulController {
 public ToyDTO findById(@PathVariable int id){
         return toyService.findById(id);
 }
-    @PostMapping("/create")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveToy(@RequestBody ToyDTO toyDTO) {
       toyService.save(toyDTO);
@@ -53,18 +53,17 @@ public ToyDTO findById(@PathVariable int id){
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{id}")
-    public void  deleteToy(@RequestParam(required = false) Integer id) {
+    public void  delete(@PathVariable int id) {
         toyService.deleteToy(id);
     }
 
     //    @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/edit")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void editToy(@RequestBody ToyDTO toyDTO) {
-        Toy toy = new Toy();
-        BeanUtils.copyProperties(toyDTO,toy);
-        toy.setTypeOfToy(new TypeOfToy(toyDTO.getTypeToyDTO().getId()));
-        toyService.editToy(toy);
+   public void update(@PathVariable int id,@RequestBody ToyDTO toyDTO){
+        ToyDTO toyDTO1 = toyService.findById(id);
+        toyDTO.setId(id);
+        toyService.save(toyDTO);
     }
 }
 

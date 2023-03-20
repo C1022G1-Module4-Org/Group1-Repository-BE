@@ -19,7 +19,7 @@ public interface IToyService {
 
     void deleteToy(int id);
 
-    void editToy(Toy toy);
+//    void editToy(Toy toy);*/
 
 //    Page<Toy> findByTypeOfToy(int id,Pageable pageable);
 }

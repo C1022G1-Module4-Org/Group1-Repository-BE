@@ -21,6 +21,7 @@ import java.util.Optional;
 public class ToyService implements IToyService {
     @Autowired
     private IToyRepository toyRepository;
+    @Autowired
     private ITypeOfToyRepository typeOfToyRepository;
 
 
@@ -34,6 +35,7 @@ public class ToyService implements IToyService {
             toyDTO.setTypeToyDTO(new TypeToyDTO());
             BeanUtils.copyProperties(toy.getTypeOfToy(),toyDTO.getTypeToyDTO());
             BeanUtils.copyProperties(toy,toyDTO);
+            toyDTOList.add(toyDTO);
         }
         return new PageImpl<>(toyDTOList,pageable,toyPage.getTotalElements());
     }
@@ -43,7 +45,7 @@ public class ToyService implements IToyService {
     @Override
     public ToyDTO findById(int id) {
         ToyDTO toyDTO = new ToyDTO();
-        Toy toy = toyRepository.findById(id).orElse(null);
+        Toy toy = toyRepository.findById(id).get();
         toyDTO.setTypeToyDTO(new TypeToyDTO());
         BeanUtils.copyProperties(toy.getTypeOfToy(),toyDTO.getTypeToyDTO());
         BeanUtils.copyProperties(toy,toyDTO);
@@ -68,7 +70,7 @@ public class ToyService implements IToyService {
     @Override
     public void save(ToyDTO toyDTO) {
         Toy toy = new Toy();
-        toy.setTypeOfToy(typeOfToyRepository.findByNameContaining(toyDTO.getTypeToyDTO().getName()));
+        toy.setTypeOfToy(typeOfToyRepository.findTypeOfToyByName(toyDTO.getTypeToyDTO().getName()));
         BeanUtils.copyProperties(toyDTO,toy);
         toyRepository.save(toy);
     }
@@ -78,10 +80,10 @@ public class ToyService implements IToyService {
         toyRepository.deleteById(id);
     }
 
-    @Override
-    public void editToy(Toy toy) {
-        toyRepository.save(toy);
-    }
+//    @Override
+//    public void editToy(Toy toy) {
+//        toyRepository.save(toy);
+//    }
 
 //    @Override
 //    public Page<Toy> findByTypeOfToy(int id, Pageable pageable) {

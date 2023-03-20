@@ -11,12 +11,7 @@ public class TypeToyDTO {
     public TypeToyDTO() {
     }
 
-    public TypeToyDTO(Integer id, String name, Set<ToyDTO> toyDTO) {
-        this.id = id;
-        this.name = name;
-        this.toyDTO = toyDTO;
-    }
-
+  
     public Integer getId() {
         return id;
     }
