@@ -3,6 +3,8 @@ package com.example.ncc1.dto;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class EmployeeDTO {
     @Id

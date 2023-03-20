@@ -24,7 +24,7 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
     public Page<EmployeeDTO> getEmployeeList(@RequestParam(required = false, defaultValue = "") String name,
-            @PageableDefault(size = 3) Pageable pageable) {
+            @PageableDefault(size = 5) Pageable pageable) {
         Sort sort = Sort.by("id").descending();
         Pageable sortedPageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
         return employeeService.findAllEmployee(sortedPageable, name);
