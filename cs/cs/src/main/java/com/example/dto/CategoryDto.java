@@ -1,31 +1,30 @@
 package com.example.dto;
 
-import com.example.model.Blog;
 
-import java.util.List;
+import java.util.Set;
 
 public class CategoryDto {
-    private int id;
-    private List<Blog> blogList;
+    private Long id;
+    private Set<BlogDto> blogDTOSet;
     private String name;
 
     public CategoryDto() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public List<Blog> getBlogList() {
-        return blogList;
+    public Set<BlogDto> getBlogDTOSet() {
+        return blogDTOSet;
     }
 
-    public void setBlogList(List<Blog> blogList) {
-        this.blogList = blogList;
+    public void setBlogDTOSet(Set<BlogDto> blogDTOSet) {
+        this.blogDTOSet = blogDTOSet;
     }
 
     public String getName() {

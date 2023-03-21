@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.CategoryDto;
 import com.example.model.Category;
 import com.example.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class CategoryController {
     private ICategoryService categoryService;
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
-    public List<Category> showAll(){
+    public List<CategoryDto> showAll(){
        return categoryService.findAll();
     }
 }
