@@ -1,17 +1,43 @@
-package com.example.ncc1.model.dto;
+package com.example.ncc1.model.product;
 
-public class ToyDTO {
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+
+@Entity
+public class Toy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+
     private double price;
+
     private String description;
+
     private String brand;
+
     private String origin;
+
     private String material;
 
-    private TypeToyDTO typeToyDTO;
+    @ManyToOne
+    @JoinColumn(name = "type_of_toy_id",referencedColumnName = "id" )
+    @JsonBackReference
+    private TypeOfToy typeOfToy;
 
-    public ToyDTO() {
+    public Toy() {
+    }
+
+    public Toy(Integer id, String name, double price, String description, String brand, String origin, String material) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.brand = brand;
+        this.origin = origin;
+        this.material = material;
     }
 
     public Integer getId() {
@@ -70,15 +96,11 @@ public class ToyDTO {
         this.material = material;
     }
 
-    public TypeToyDTO getTypeToyDTO() {
-        return typeToyDTO;
+    public TypeOfToy getTypeOfToy() {
+        return typeOfToy;
     }
 
-    public void setTypeToyDTO(TypeToyDTO typeToyDTO) {
-        this.typeToyDTO = typeToyDTO;
+    public void setTypeOfToy(TypeOfToy typeOfToy) {
+        this.typeOfToy = typeOfToy;
     }
-
-
-
-
 }

@@ -1,9 +1,10 @@
-package com.example.ncc1.service.customer;
+package com.example.ncc1.service.customer.impl;
 import com.example.ncc1.dto.customer.CustomerDTO;
 import com.example.ncc1.dto.customer.CustomerTypeDTO;
 import com.example.ncc1.model.customer.Customer;
 import com.example.ncc1.model.customer.CustomerType;
 import com.example.ncc1.repository.customer.ICustomerTypeRepository;
+import com.example.ncc1.service.customer.ICustomerTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

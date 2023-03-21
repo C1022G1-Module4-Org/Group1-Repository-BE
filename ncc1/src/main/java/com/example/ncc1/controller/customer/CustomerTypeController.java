@@ -1,4 +1,4 @@
-package com.example.ncc1.controller;
+package com.example.ncc1.controller.customer;
 
 import com.example.ncc1.dto.customer.CustomerTypeDTO;
 import com.example.ncc1.service.customer.ICustomerTypeService;

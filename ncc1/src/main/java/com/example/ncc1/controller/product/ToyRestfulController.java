@@ -1,22 +1,13 @@
-package com.example.ncc1.controller;
+package com.example.ncc1.controller.product;
 
-import com.example.ncc1.model.Toy;
-import com.example.ncc1.model.TypeOfToy;
-import com.example.ncc1.model.dto.ToyDTO;
+import com.example.ncc1.dto.product.ToyDTO;
 import com.example.ncc1.service.product.IToyService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -37,7 +28,7 @@ public class ToyRestfulController {
 //    }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
-    public Page<ToyDTO> showAll(@RequestParam (name = "name",required = false,defaultValue = "")String name,@PageableDefault(size = 3) Pageable pageable){
+    public Page<ToyDTO> showAll(@RequestParam (name = "name",required = false,defaultValue = "")String name, @PageableDefault(size = 3) Pageable pageable){
         return toyService.showAll(name,pageable);
     }
 @ResponseStatus(HttpStatus.OK)

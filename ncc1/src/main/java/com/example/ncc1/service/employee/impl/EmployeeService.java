@@ -1,7 +1,7 @@
 package com.example.ncc1.service.employee.impl;
 
-import com.example.ncc1.dto.EmployeeDTO;
-import com.example.ncc1.dto.LevelEmployeeDTO;
+import com.example.ncc1.dto.employee.EmployeeDTO;
+import com.example.ncc1.dto.employee.LevelEmployeeDTO;
 import com.example.ncc1.model.employee.Employee;
 import com.example.ncc1.model.employee.LevelEmployee;
 import com.example.ncc1.repository.employee.IEmployeeRepository;

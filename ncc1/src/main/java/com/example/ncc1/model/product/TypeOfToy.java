@@ -1,4 +1,4 @@
-package com.example.ncc1.model;
+package com.example.ncc1.model.product;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
