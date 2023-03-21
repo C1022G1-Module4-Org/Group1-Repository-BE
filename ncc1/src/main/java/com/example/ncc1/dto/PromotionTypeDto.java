@@ -5,7 +5,7 @@ import java.util.Set;
 public class PromotionTypeDto {
     private int id;
     private String name;
-    Set<PromotionDto> promotionDTO;
+//    Set<PromotionDto> promotionDTO;
 
 
     public PromotionTypeDto() {
@@ -27,11 +27,11 @@ public class PromotionTypeDto {
         this.name = name;
     }
 
-    public Set<PromotionDto> getPromotionDTO() {
-        return promotionDTO;
-    }
-
-    public void setPromotionDTO(Set<PromotionDto> promotionDTO) {
-        this.promotionDTO = promotionDTO;
-    }
+//    public Set<PromotionDto> getPromotionDTO() {
+//        return promotionDTO;
+//    }
+//
+//    public void setPromotionDTO(Set<PromotionDto> promotionDTO) {
+//        this.promotionDTO = promotionDTO;
+//    }
 }
