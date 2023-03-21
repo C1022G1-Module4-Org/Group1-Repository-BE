@@ -1,4 +1,4 @@
-package com.example.ncc1.service.customer;
+package com.example.ncc1.service.customer.impl;
 
 
 import com.example.ncc1.dto.customer.CustomerDTO;
@@ -6,6 +6,7 @@ import com.example.ncc1.dto.customer.CustomerTypeDTO;
 import com.example.ncc1.model.customer.Customer;
 import com.example.ncc1.repository.customer.ICustomerRepository;
 import com.example.ncc1.repository.customer.ICustomerTypeRepository;
+import com.example.ncc1.service.customer.ICustomerService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CustomerService implements ICustomerService{
+public class CustomerService implements ICustomerService {
 
     @Autowired
     ICustomerRepository customerRepository;

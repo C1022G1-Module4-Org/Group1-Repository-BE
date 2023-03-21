@@ -1,4 +1,4 @@
-package com.example.ncc1.model.dto;
+package com.example.ncc1.dto.product;
 
 import java.util.Set;
 

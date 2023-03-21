@@ -1,6 +1,6 @@
 package com.example.ncc1.service.employee;
 
-import com.example.ncc1.dto.EmployeeDTO;
+import com.example.ncc1.dto.employee.EmployeeDTO;
 import com.example.ncc1.model.employee.Employee;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
