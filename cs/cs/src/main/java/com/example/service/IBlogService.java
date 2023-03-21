@@ -1,21 +1,18 @@
 package com.example.service;
 
 import com.example.dto.BlogDto;
-import com.example.model.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public interface IBlogService {
-    List<Blog> findAll();
+    Page<BlogDto> getAll(String name, Pageable pageable);
 
-    void saveBlog(Blog blog);
+    BlogDto getById(Long id);
 
-    Blog findById(int id);
-
-    void deleteBlog(int id);
+    void create(BlogDto blogDto);
+    void delete(Long id);
 
 }

@@ -1,15 +1,12 @@
 package com.example.service;
 
+import com.example.dto.CategoryDto;
 import com.example.model.Category;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ICategoryService {
-    List<Category> findAll();
-
-    void save(Category category);
-
-    Category findById(Integer id);
-
-    void delete(Integer id);
+    List<CategoryDto> findAll ();
+    Optional<Category> findById (Long id);
 }

@@ -11,31 +11,31 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @OneToMany(mappedBy = "category")
     @JsonBackReference
-    private List<Blog> blogList;
+    private Set<Blog> blogSet;
 
     private String name;
 
     public Category() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public List<Blog> getBlogList() {
-        return blogList;
+    public Set<Blog> getBlogSet() {
+        return blogSet;
     }
 
-    public void setBlogList(List<Blog> blogList) {
-        this.blogList = blogList;
+    public void setBlogSet(Set<Blog> blogSet) {
+        this.blogSet = blogSet;
     }
 
     public String getName() {
