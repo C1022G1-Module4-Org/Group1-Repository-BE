@@ -9,6 +9,8 @@ public class BlogDto {
     private Category category;
     private String content;
 
+    private CategoryDto categoryDto;
+
     public BlogDto() {
     }
 
@@ -50,5 +52,13 @@ public class BlogDto {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public CategoryDto getCategoryDto() {
+        return categoryDto;
+    }
+
+    public void setCategoryDto(CategoryDto categoryDto) {
+        this.categoryDto = categoryDto;
     }
 }
