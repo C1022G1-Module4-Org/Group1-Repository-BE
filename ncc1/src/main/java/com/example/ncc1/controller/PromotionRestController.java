@@ -8,12 +8,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/promotion")
@@ -49,8 +47,8 @@ public class PromotionRestController {
     @PutMapping("/{id}")
     public void update(@PathVariable int id, @RequestBody PromotionDto promotionDto) {
         PromotionDto promotionDto1 = iPromotionService.getById(id);
-        promotionDto1.setId(id);
-        iPromotionService.create(promotionDto1);
+        promotionDto.setId(id);
+        iPromotionService.create(promotionDto);
     }
 
 }

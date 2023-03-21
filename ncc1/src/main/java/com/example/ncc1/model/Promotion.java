@@ -10,7 +10,7 @@ public class Promotion {
     private String name;
     private String startDay;
     private String endDay;
-    private Float discount;
+    private int discount;
     @ManyToOne
     @JoinColumn(name = "promotionType_id", referencedColumnName = "id")
     private PromotionType promotionType;
@@ -18,7 +18,7 @@ public class Promotion {
     public Promotion() {
     }
 
-    public Promotion(Integer id, String name, String startDay, String endDay, Float discount, PromotionType promotionType) {
+    public Promotion(Integer id, String name, String startDay, String endDay, int discount, PromotionType promotionType) {
         this.id = id;
         this.name = name;
         this.startDay = startDay;
@@ -59,11 +59,11 @@ public class Promotion {
         this.endDay = endDay;
     }
 
-    public Float getDiscount() {
+    public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Float discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 

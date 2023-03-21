@@ -1,5 +1,7 @@
 package com.example.ncc1.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,17 +11,13 @@ public class PromotionType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @OneToMany(mappedBy = "promotionType")
-    private Set<Promotion> promotions;
+
+    public PromotionType(Integer id) {
+        this.id = id;
+    }
 
     public PromotionType() {
 
-    }
-
-    public PromotionType(Integer id, String name, Set<Promotion> promotions) {
-        this.id = id;
-        this.name = name;
-        this.promotions = promotions;
     }
 
     public Integer getId() {
@@ -38,11 +36,4 @@ public class PromotionType {
         this.name = name;
     }
 
-    public Set<Promotion> getPromotions() {
-        return promotions;
-    }
-
-    public void setPromotions(Set<Promotion> promotions) {
-        this.promotions = promotions;
-    }
 }

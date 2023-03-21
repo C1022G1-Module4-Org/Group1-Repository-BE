@@ -45,7 +45,7 @@ public class PromotionService implements IPromotionService {
         PromotionDto promotionDto = new PromotionDto();
         Promotion promotion = promotionRepository.findById(id).get();
         promotionDto.setPromotionTypeDto(new PromotionTypeDto());
-        BeanUtils.copyProperties(promotion.getPromotionType(),promotionDto.getCustomerTypeDTO());
+        BeanUtils.copyProperties(promotion.getPromotionType(),promotionDto.getPromotionTypeDto());
         BeanUtils.copyProperties(promotion, promotionDto);
         return promotionDto;
     }
@@ -53,7 +53,7 @@ public class PromotionService implements IPromotionService {
     @Override
     public void create(PromotionDto promotionDto) {
         Promotion promotion = new Promotion();
-        promotion.setPromotionType(iPromotionTypeRepository.findCustomerTypeByName(promotionDto.getCustomerTypeDTO().getName()));
+        promotion.setPromotionType(new PromotionType(promotion.getPromotionType().getId()));
         BeanUtils.copyProperties(promotionDto, promotion);
         promotionRepository.save(promotion);
     }

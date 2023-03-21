@@ -6,15 +6,13 @@ public class PromotionDto {
     private String name;
     private String startDay;
     private  String endDay;
-    private  String discount;
+    private  int discount;
     private PromotionTypeDto promotionTypeDto;
 
     public PromotionDto() {
     }
 
-    public PromotionTypeDto getCustomerTypeDTO() {
-        return promotionTypeDto;
-    }
+
 
     public void setPromotionTypeDto(PromotionTypeDto promotionTypeDto) {
         this.promotionTypeDto = promotionTypeDto;
@@ -52,11 +50,11 @@ public class PromotionDto {
         this.endDay = endDay;
     }
 
-    public String getDiscount() {
+    public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(String discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 
