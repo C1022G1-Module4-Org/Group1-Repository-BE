@@ -7,16 +7,14 @@ public class PromotionDto {
     private String startDay;
     private  String endDay;
     private  int discount;
-    private PromotionTypeDto promotionTypeDto;
+    private PromotionTypeDto typeDto;
 
     public PromotionDto() {
     }
 
 
 
-    public void setPromotionTypeDto(PromotionTypeDto promotionTypeDto) {
-        this.promotionTypeDto = promotionTypeDto;
-    }
+
 
     public int getId() {
         return id;
@@ -58,7 +56,11 @@ public class PromotionDto {
         this.discount = discount;
     }
 
-    public PromotionTypeDto getPromotionTypeDto() {
-        return promotionTypeDto;
+    public PromotionTypeDto getTypeDto() {
+        return typeDto;
+    }
+
+    public void setTypeDto(PromotionTypeDto typeDto) {
+        this.typeDto = typeDto;
     }
 }

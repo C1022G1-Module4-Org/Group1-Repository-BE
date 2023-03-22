@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String name;
     private String startDay;
     private String endDay;
@@ -18,7 +18,7 @@ public class Promotion {
     public Promotion() {
     }
 
-    public Promotion(Integer id, String name, String startDay, String endDay, int discount, PromotionType promotionType) {
+    public Promotion(int id, String name, String startDay, String endDay, int discount, PromotionType promotionType) {
         this.id = id;
         this.name = name;
         this.startDay = startDay;
@@ -27,11 +27,11 @@ public class Promotion {
         this.promotionType = promotionType;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
