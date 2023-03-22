@@ -1,11 +1,24 @@
 package com.example.ncc1.dto.customer;
+import org.springframework.validation.Validator;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 public class CustomerDTO {
+    @NotNull(message = "Không được để trống")
     private Long id;
+    @NotBlank(message = "Không được để trống")
+    @Size(max = 800, message = "Không vượt quá 800 ký tự")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Chỉ chấp nhận ký tự chữ cái và số")
     private String name;
+    @NotBlank(message = "Không được để trống")
     private String address;
+    @NotBlank(message = "Không được để trống")
     private  String phoneNumber;
-
+    @NotNull(message = "Không được để trống")
     private CustomerTypeDTO customerTypeDTO;
 
     public CustomerDTO() {

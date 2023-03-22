@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/customers")
 @CrossOrigin("*")
@@ -36,7 +37,8 @@ public class CustomerRestController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public void createCustomer(@RequestBody CustomerDTO customerDTO) {
+    public void createCustomer(@RequestBody  CustomerDTO customerDTO ){
+
         iCustomerService.create(customerDTO);
     }
     @ResponseStatus(HttpStatus.OK)
