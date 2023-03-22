@@ -12,7 +12,7 @@ public class LevelEmployee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank
+    @NotBlank(message = "Không được để trống")
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "levelEmployee" , cascade = CascadeType.ALL)
