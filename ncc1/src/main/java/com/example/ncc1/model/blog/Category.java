@@ -1,6 +1,7 @@
 package com.example.ncc1.model.blog;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,10 +11,10 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @OneToMany(mappedBy = "category")
-    @JsonBackReference
+    @JsonManagedReference
     private Set<Blog> blogSet;
 
     private String name;
@@ -21,11 +22,14 @@ public class Category {
     public Category() {
     }
 
-    public Long getId() {
+    public Category(int id) {
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

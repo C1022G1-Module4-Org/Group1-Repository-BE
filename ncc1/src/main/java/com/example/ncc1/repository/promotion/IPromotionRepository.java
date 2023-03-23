@@ -1,6 +1,6 @@
-package com.example.ncc1.repository;
+package com.example.ncc1.repository.promotion;
 
-import com.example.ncc1.model.Promotion;
+import com.example.ncc1.model.promotion.Promotion;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

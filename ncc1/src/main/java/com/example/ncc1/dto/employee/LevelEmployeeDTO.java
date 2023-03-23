@@ -6,7 +6,6 @@ import java.util.Set;
 
 public class LevelEmployeeDTO {
     private int id;
-    @NotBlank
     private String name;
 //    private Set<EmployeeDTO> employeeDTOSet;
 

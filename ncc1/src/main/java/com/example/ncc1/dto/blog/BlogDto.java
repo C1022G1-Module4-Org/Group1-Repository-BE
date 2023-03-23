@@ -3,23 +3,31 @@ package com.example.ncc1.dto.blog;
 
 import com.example.ncc1.model.blog.Category;
 
-public class BlogDto {
-    private Long id;
-    private String title;
-    private String author;
-    private Category category;
-    private String content;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
+public class BlogDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @NotBlank(message = "không được để trống")
+    private String title;
+    @NotBlank(message = "không được để trống")
+    private String author;
+    @NotBlank(message = "không được để trống")
+    private String content;
     private CategoryDto categoryDto;
 
     public BlogDto() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,14 +45,6 @@ public class BlogDto {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getContent() {

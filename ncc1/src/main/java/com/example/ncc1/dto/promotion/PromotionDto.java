@@ -1,4 +1,4 @@
-package com.example.ncc1.dto;
+package com.example.ncc1.dto.promotion;
 
 
 public class PromotionDto {
