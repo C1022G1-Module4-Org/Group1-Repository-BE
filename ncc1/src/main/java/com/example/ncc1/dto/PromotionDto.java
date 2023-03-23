@@ -1,12 +1,20 @@
 package com.example.ncc1.dto;
 
 
+import com.sun.istack.NotNull;
+import org.springframework.lang.NonNull;
+
 public class PromotionDto {
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private String startDay;
+    @NotNull
     private  String endDay;
+    @NotNull
     private  int discount;
+
     private PromotionTypeDto typeDto;
 
     public PromotionDto() {

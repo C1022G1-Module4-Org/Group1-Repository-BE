@@ -1,11 +1,14 @@
 package com.example.ncc1.model;
 
+
+
 import javax.persistence.*;
 
 @Entity
 public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String name;
     private String startDay;
