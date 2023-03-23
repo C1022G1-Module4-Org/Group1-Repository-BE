@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IToyService {
-    Page<ToyDTO> showAll(String name,Pageable pageable);
+    Page<ToyDTO> showAll(String name, Pageable pageable);
 
     ToyDTO findById(int id);
 

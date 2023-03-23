@@ -1,9 +1,19 @@
 package com.example.ncc1.dto.customer;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 public class CustomerDTO {
     private Long id;
+    @NotBlank(message = "Không được để trống")
+    @Size(max = 800, message = "Không vượt quá 800 ký tự")
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "Chỉ chấp nhận ký tự chữ cái và số")
     private String name;
+    @NotBlank(message = "Không được để trống")
     private String address;
+    @NotBlank(message = "Không được để trống")
+    @Pattern(regexp = "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$", message = "Số điện thoại phải theo dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx")
     private  String phoneNumber;
 
     private CustomerTypeDTO customerTypeDTO;
