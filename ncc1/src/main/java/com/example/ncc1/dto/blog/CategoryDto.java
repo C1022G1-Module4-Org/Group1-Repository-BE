@@ -1,31 +1,33 @@
 package com.example.ncc1.dto.blog;
 
 
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 public class CategoryDto {
-    private Long id;
-    private Set<BlogDto> blogDTOSet;
-    private String name;
 
+    private int id;
+//    private Set<BlogDto> blogDTOSet;
+    private String name;
+    @NotBlank
     public CategoryDto() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Set<BlogDto> getBlogDTOSet() {
-        return blogDTOSet;
-    }
-
-    public void setBlogDTOSet(Set<BlogDto> blogDTOSet) {
-        this.blogDTOSet = blogDTOSet;
-    }
+//    public Set<BlogDto> getBlogDTOSet() {
+//        return blogDTOSet;
+//    }
+//
+//    public void setBlogDTOSet(Set<BlogDto> blogDTOSet) {
+//        this.blogDTOSet = blogDTOSet;
+//    }
 
     public String getName() {
         return name;

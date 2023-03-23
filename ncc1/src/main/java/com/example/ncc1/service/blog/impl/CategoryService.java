@@ -18,35 +18,27 @@ public class CategoryService implements ICategoryService {
     @Autowired
     private ICategoryRepository categoryRepository;
 
-    public void setValueOfCustomerDTOSet (Category category, CategoryDto categoryDto) {
-        Set<Blog> blogSet = category.getBlogSet();
-        Set<BlogDto> blogDtoSet = new LinkedHashSet<>();
-        BlogDto blogDto;
-        for (Blog blog : blogSet) {
-            blogDto = new BlogDto();
-            BeanUtils.copyProperties(blog, blogDto);
-            blogDtoSet.add(blogDto);
-        }
-        BeanUtils.copyProperties(category, categoryDto);
-        categoryDto.setBlogDTOSet(blogDtoSet);
-    }
+//    public void setValueOfCustomerDTOSet (Category category, CategoryDto categoryDto) {
+//        Set<Blog> blogSet = category.getBlogSet();
+//        Set<BlogDto> blogDtoSet = new LinkedHashSet<>();
+//        BlogDto blogDto;
+//        for (Blog blog : blogSet) {
+//            blogDto = new BlogDto();
+//            BeanUtils.copyProperties(blog, blogDto);
+//            blogDtoSet.add(blogDto);
+//        }
+//        BeanUtils.copyProperties(category, categoryDto);
+//        categoryDto.setBlogDTOSet(blogDtoSet);
+//    }
 
     @Override
-    public List<CategoryDto> findAll() {
+    public List<Category> findAll() {
         List<Category> categoryList = categoryRepository.findAll();
-        List<CategoryDto> categoryDtoList = new ArrayList<>();
-        CategoryDto categoryDto;
-        for (Category category : categoryList) {
-            categoryDto = new CategoryDto();
-            setValueOfCustomerDTOSet(category, categoryDto);
-            BeanUtils.copyProperties(category, categoryDto);
-            categoryDtoList.add(categoryDto);
-        }
-        return categoryDtoList;
+        return categoryList;
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
+    public Optional<Category> findById(int id) {
         return categoryRepository.findById(id);
     }
 }

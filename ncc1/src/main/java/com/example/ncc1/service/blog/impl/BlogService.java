@@ -4,6 +4,7 @@ package com.example.ncc1.service.blog.impl;
 import com.example.ncc1.dto.blog.BlogDto;
 import com.example.ncc1.dto.blog.CategoryDto;
 import com.example.ncc1.model.blog.Blog;
+import com.example.ncc1.model.blog.Category;
 import com.example.ncc1.repository.blog.IBlogRepository;
 import com.example.ncc1.repository.blog.ICategoryRepository;
 import com.example.ncc1.service.blog.IBlogService;
@@ -45,25 +46,31 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public BlogDto getById(Long id) {
+    public BlogDto getById(int id) {
         BlogDto blogDto = new BlogDto();
         Blog blog = blogRepository.findById(id).get();
         blogDto.setCategoryDto(new CategoryDto());
-        BeanUtils.copyProperties(blog.getCategory(), blogDto.getCategory());
+        BeanUtils.copyProperties(blog.getCategory(), blogDto.getCategoryDto());
         BeanUtils.copyProperties(blog, blogDto);
         return blogDto;
     }
 
     @Override
-    public void create(BlogDto blogDto) {
-        Blog blog = new Blog();
-        blog.setCategory(categoryRepository.findCategoryByName(blogDto.getCategoryDto().getName()));
-        BeanUtils.copyProperties(blogDto, blog);
+    public void create(Blog blog) {
         blogRepository.save(blog);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         blogRepository.deleteById(id);
+    }
+
+    @Override
+    public void update(BlogDto blogDto, int id) {
+        Blog blog = blogRepository.findById(id).get();
+        blog.setCategory(new Category(blogDto.getCategoryDto().getId()));
+        BeanUtils.copyProperties(blogDto.getCategoryDto(), blog.getCategory());
+        BeanUtils.copyProperties(blogDto, blog);
+        blogRepository.save(blog);
     }
 }

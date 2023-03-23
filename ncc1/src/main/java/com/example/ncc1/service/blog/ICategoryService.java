@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public interface ICategoryService {
-    List<CategoryDto> findAll ();
-    Optional<Category> findById (Long id);
+    List<Category> findAll ();
+    Optional<Category> findById (int id);
 }
