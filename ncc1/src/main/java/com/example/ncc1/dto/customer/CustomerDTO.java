@@ -1,8 +1,5 @@
 package com.example.ncc1.dto.customer;
-import org.springframework.validation.Validator;
-
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
