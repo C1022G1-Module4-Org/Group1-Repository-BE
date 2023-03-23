@@ -1,8 +1,8 @@
 package com.example.ncc1.service.product.impl;
 
-import com.example.ncc1.model.Toy;
-import com.example.ncc1.model.dto.ToyDTO;
-import com.example.ncc1.model.dto.TypeToyDTO;
+import com.example.ncc1.dto.product.ToyDTO;
+import com.example.ncc1.dto.product.TypeToyDTO;
+import com.example.ncc1.model.product.Toy;
 import com.example.ncc1.repository.product.IToyRepository;
 import com.example.ncc1.repository.product.ITypeOfToyRepository;
 import com.example.ncc1.service.product.IToyService;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ToyService implements IToyService {

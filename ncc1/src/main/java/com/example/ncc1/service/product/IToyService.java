@@ -1,12 +1,8 @@
 package com.example.ncc1.service.product;
 
-import com.example.ncc1.model.Toy;
-import com.example.ncc1.model.dto.ToyDTO;
+import com.example.ncc1.dto.product.ToyDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
-import java.util.Optional;
 
 public interface IToyService {
     Page<ToyDTO> showAll(String name,Pageable pageable);

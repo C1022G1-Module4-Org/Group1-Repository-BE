@@ -1,6 +1,10 @@
 package com.example.ncc1.model.customer;
 
+import com.example.ncc1.model.Cart.CartItem;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -11,8 +15,12 @@ public class Customer {
     private String name;
     private String address;
     private  String phoneNumber;
+
     @ManyToOne
     private CustomerType customerType;
+    @JsonBackReference
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL )
+    private Set<CartItem> cartItems;
 
     public Long getId() {
         return id;
@@ -52,5 +60,13 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }
