@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 
 @RestController
 @RequestMapping("/customers")
 @CrossOrigin("*")
 public class CustomerRestController {
+
     @Autowired
     private ICustomerService iCustomerService;
 
@@ -29,7 +31,7 @@ public class CustomerRestController {
     @GetMapping("")
     public Page<CustomerDTO> getAll(
             @RequestParam(name = "name", required = false, defaultValue = "") String name,
-            @PageableDefault(size = 3) Pageable pageable) {
+            @PageableDefault(size = 5) Pageable pageable) {
         return iCustomerService.getAll(name, pageable);
     }
     @ResponseStatus(HttpStatus.OK)
@@ -83,3 +85,4 @@ public class CustomerRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
+
