@@ -1,10 +1,12 @@
 package com.example.ncc1.model.employee;
 
+import com.example.ncc1.model.Cart.CartItem;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -29,6 +31,9 @@ public class Employee {
     @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
+    @JsonBackReference
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL )
+    private Set<CartItem> cartItems;
     @ManyToOne
     @JoinColumn(name = "id_level", nullable = false, referencedColumnName = "id")
     @JsonBackReference
@@ -111,5 +116,13 @@ public class Employee {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }

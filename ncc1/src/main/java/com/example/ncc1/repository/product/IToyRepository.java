@@ -1,6 +1,6 @@
 package com.example.ncc1.repository.product;
 
-import com.example.ncc1.model.Toy;
+import com.example.ncc1.model.product.Toy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
