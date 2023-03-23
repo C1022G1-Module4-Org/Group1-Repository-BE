@@ -1,6 +1,6 @@
-package com.example.ncc1.controller;
+package com.example.ncc1.controller.promotion;
 
-import com.example.ncc1.dto.PromotionDto;
+import com.example.ncc1.dto.promotion.PromotionDto;
 
 import com.example.ncc1.service.promotion.IPromotionService;
 import org.springframework.beans.factory.annotation.Autowired;

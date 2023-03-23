@@ -1,7 +1,7 @@
 package com.example.ncc1.service.promotion;
 
 
-import com.example.ncc1.dto.PromotionDto;
+import com.example.ncc1.dto.promotion.PromotionDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

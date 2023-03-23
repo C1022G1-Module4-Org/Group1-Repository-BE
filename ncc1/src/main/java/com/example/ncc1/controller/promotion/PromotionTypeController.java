@@ -1,7 +1,7 @@
-package com.example.ncc1.controller;
+package com.example.ncc1.controller.promotion;
 
-import com.example.ncc1.model.PromotionType;
-import com.example.ncc1.service.promotionType.IPromotionTypeService;
+import com.example.ncc1.model.promotion.PromotionType;
+import com.example.ncc1.service.promotion.IPromotionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

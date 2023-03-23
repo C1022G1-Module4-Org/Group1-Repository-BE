@@ -1,8 +1,8 @@
-package com.example.ncc1.service.promotionType.impl;
+package com.example.ncc1.service.promotion.impl;
 
-import com.example.ncc1.model.PromotionType;
-import com.example.ncc1.repository.IPromotionTypeRepository;
-import com.example.ncc1.service.promotionType.IPromotionTypeService;
+import com.example.ncc1.model.promotion.PromotionType;
+import com.example.ncc1.repository.promotion.IPromotionTypeRepository;
+import com.example.ncc1.service.promotion.IPromotionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
