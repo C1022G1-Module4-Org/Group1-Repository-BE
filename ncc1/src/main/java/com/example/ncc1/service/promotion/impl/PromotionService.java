@@ -2,6 +2,8 @@ package com.example.ncc1.service.promotion.impl;
 
 import com.example.ncc1.dto.promotion.PromotionDto;
 import com.example.ncc1.dto.promotion.PromotionTypeDto;
+import com.example.ncc1.model.employee.Employee;
+import com.example.ncc1.model.employee.LevelEmployee;
 import com.example.ncc1.model.promotion.Promotion;
 import com.example.ncc1.model.promotion.PromotionType;
 import com.example.ncc1.repository.promotion.IPromotionRepository;
@@ -32,8 +34,8 @@ public class PromotionService implements IPromotionService {
         PromotionDto promotionDto;
         for (Promotion promotion : promotionPage) {
             promotionDto = new PromotionDto();
-            promotionDto.setTypeDto((new PromotionTypeDto()));
-            BeanUtils.copyProperties(promotion.getPromotionType(), promotionDto.getTypeDto());
+            promotionDto.setPromotionTypeDto((new PromotionTypeDto()));
+            BeanUtils.copyProperties(promotion.getPromotionType(), promotionDto.getPromotionTypeDto());
             BeanUtils.copyProperties(promotion, promotionDto);
             promotionDtoList.add(promotionDto);
         }
@@ -44,18 +46,14 @@ public class PromotionService implements IPromotionService {
     public PromotionDto getById(int id) {
         PromotionDto promotionDto = new PromotionDto();
         Promotion promotion = promotionRepository.findById(id).get();
-        promotionDto.setTypeDto(new PromotionTypeDto());
-        BeanUtils.copyProperties(promotion.getPromotionType(),promotionDto.getTypeDto());
+        promotionDto.setPromotionTypeDto(new PromotionTypeDto());
+        BeanUtils.copyProperties(promotion.getPromotionType(),promotionDto.getPromotionTypeDto());
         BeanUtils.copyProperties(promotion, promotionDto);
         return promotionDto;
     }
 
     @Override
-    public void create(PromotionDto promotionDto) {
-        Promotion promotion = new Promotion();
-        promotion.setPromotionType(new PromotionType(promotionDto
-                .getTypeDto().getId()));
-        BeanUtils.copyProperties(promotionDto, promotion);
+    public void create(Promotion promotion) {
         promotionRepository.save(promotion);
     }
 
@@ -63,6 +61,15 @@ public class PromotionService implements IPromotionService {
     @Override
     public void delete(int id) {
         promotionRepository.deleteById(id);
+    }
+
+    @Override
+    public void update(PromotionDto promotionDto, int id) {
+        Promotion promotion = promotionRepository.findById(id).get();
+        promotion.setPromotionType(new PromotionType());
+        BeanUtils.copyProperties(promotionDto.getPromotionTypeDto(), promotion.getPromotionType());
+        BeanUtils.copyProperties(promotionDto, promotion);
+        promotionRepository.save(promotion);
     }
 
 }

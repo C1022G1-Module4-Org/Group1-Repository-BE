@@ -9,22 +9,25 @@ import java.util.Set;
 public class PromotionType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
 
-    public PromotionType(int id) {
+    public PromotionType(Integer id) {
         this.id = id;
     }
 
     public PromotionType() {
 
     }
+    public PromotionType(int id) {
 
-    public int getId() {
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

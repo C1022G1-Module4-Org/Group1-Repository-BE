@@ -1,28 +1,42 @@
 package com.example.ncc1.dto.promotion;
 
 
-import com.sun.istack.NotNull;
-import org.springframework.lang.NonNull;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class PromotionDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
+    @NotBlank(message = "Không được để trống")
     private String name;
-    @NotNull
+    @NotBlank(message = "Không được để trống")
     private String startDay;
-    @NotNull
+    @NotBlank(message = "Không được để trống")
     private  String endDay;
-    @NotNull
+    @NotBlank(message = "Không được để trống")
+    @Pattern(regexp = "^\\d+$" , message = "Không được nhập chữ và bắt buộc phải là số nguyên")
     private  int discount;
-
-    private PromotionTypeDto typeDto;
+    private PromotionTypeDto promotionTypeDto;
 
     public PromotionDto() {
     }
 
+    public PromotionDto(int id, String name, String startDay, String endDay, int discount, PromotionTypeDto promotionTypeDto) {
+        this.id = id;
+        this.name = name;
+        this.startDay = startDay;
+        this.endDay = endDay;
+        this.discount = discount;
+        this.promotionTypeDto = promotionTypeDto;
+    }
 
-
-
+    public void setPromotionTypeDto(PromotionTypeDto promotionTypeDto) {
+        this.promotionTypeDto = promotionTypeDto;
+    }
 
     public int getId() {
         return id;
@@ -64,11 +78,7 @@ public class PromotionDto {
         this.discount = discount;
     }
 
-    public PromotionTypeDto getTypeDto() {
-        return typeDto;
-    }
-
-    public void setTypeDto(PromotionTypeDto typeDto) {
-        this.typeDto = typeDto;
+    public PromotionTypeDto getPromotionTypeDto() {
+        return promotionTypeDto;
     }
 }
