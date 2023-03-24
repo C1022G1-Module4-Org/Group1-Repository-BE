@@ -1,14 +1,23 @@
 package com.example.ncc1.dto.promotion;
 
-import java.util.Set;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 public class PromotionTypeDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 //    Set<PromotionDto> promotionDTO;
 
 
     public PromotionTypeDto() {
+    }
+
+    public PromotionTypeDto(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public int getId() {

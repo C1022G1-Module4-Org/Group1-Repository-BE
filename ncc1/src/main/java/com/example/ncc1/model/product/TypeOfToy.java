@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class TypeOfToy {
+public class    TypeOfToy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

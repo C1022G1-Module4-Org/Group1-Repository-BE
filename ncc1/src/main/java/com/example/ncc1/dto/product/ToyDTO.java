@@ -1,13 +1,30 @@
 package com.example.ncc1.dto.product;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 public class ToyDTO {
     private Integer id;
+    @NotBlank(message = "Không được để trống")
+    @Pattern(regexp = "^(([a-zA-Z\\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\\s\\'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$", message = "Nhập không đúng định dạng tên")
     private String name;
+
+//    @NotBlank(message = "Không được để trống")
+//    @Pattern(regexp = "")
     private double price;
+
+    @NotBlank(message = "Không được để trống")
     private String description;
+
+    @NotBlank(message = "Không được để trống")
     private String brand;
+    @NotBlank(message = "Không được để trống")
+
     private String origin;
+    @NotBlank(message = "Không được để trống")
     private String material;
+    @NotBlank(message = "Không được để trống")
+    private String img;
 
     private TypeToyDTO typeToyDTO;
 
@@ -70,6 +87,14 @@ public class ToyDTO {
         this.material = material;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public TypeToyDTO getTypeToyDTO() {
         return typeToyDTO;
     }
@@ -77,8 +102,6 @@ public class ToyDTO {
     public void setTypeToyDTO(TypeToyDTO typeToyDTO) {
         this.typeToyDTO = typeToyDTO;
     }
-
-
 
 
 }

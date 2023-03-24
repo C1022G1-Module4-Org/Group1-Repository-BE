@@ -1,18 +1,24 @@
 package com.example.ncc1.model.promotion;
 
-
+import com.example.ncc1.model.employee.LevelEmployee;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int id;
+    private Integer id;
+    @NotBlank(message = "Không được để trống")
     private String name;
+    @NotBlank(message = "Không được để trống")
     private String startDay;
+    @NotBlank(message = "Không được để trống")
     private String endDay;
+    @NotBlank(message = "Không được để trống")
+    @Pattern(regexp = "^\\d+$" , message = "Không được nhập chữ và bắt buộc phải là số nguyên")
     private int discount;
     @ManyToOne
     @JoinColumn(name = "promotionType_id", referencedColumnName = "id")
@@ -21,7 +27,7 @@ public class Promotion {
     public Promotion() {
     }
 
-    public Promotion(int id, String name, String startDay, String endDay, int discount, PromotionType promotionType) {
+    public Promotion(Integer id, String name, String startDay, String endDay, int discount, PromotionType promotionType) {
         this.id = id;
         this.name = name;
         this.startDay = startDay;
@@ -30,11 +36,11 @@ public class Promotion {
         this.promotionType = promotionType;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -77,4 +83,5 @@ public class Promotion {
     public void setPromotionType(PromotionType promotionType) {
         this.promotionType = promotionType;
     }
+
 }
